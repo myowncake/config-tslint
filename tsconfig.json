@@ -1,0 +1,15 @@
+{
+  "extends": "./config/tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "build",
+    "emitDecoratorMetadata": true
+  },
+  "include": [
+    "scripts/*.ts",
+    "src/*.ts",
+    "src/**/*.ts",
+    "spec/*.ts",
+    "spec/**/*.ts"
+  ]
+}

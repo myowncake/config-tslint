@@ -1,0 +1,37 @@
+{
+  "name": "@myowncake/config-tslint",
+  "version": "0.1.0",
+  "description": "An NPM package providing my own TSLint configuration.",
+  "repository": "myowncake/config-tslint",
+  "license": "MIT",
+  "author": "mosop",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dist": "npm-run-all dist:tslintall dist:prettier",
+    "dist:prettier": "cp node_modules/tslint-config-prettier/lib/index.json dist/tslint.prettier.json",
+    "dist:tslintall": "ts-node scripts/generate-tslintall.ts > dist/tslint.all.json",
+    "doc": "typedoc --mode file --excludeNotExported --out docs/api src",
+    "lint": "tslint -p . -t verbose && tslint -p . -c dist/tslint.no-unused-variable.json -t verbose",
+    "test": "ts-node node_modules/jasmine/bin/jasmine 'spec/**/*.spec.ts'",
+    "posttest": "npm run lint"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^2.8.7",
+    "@types/json-stable-stringify": "^1.0.32",
+    "@types/node": "^8.10.17",
+    "@types/tmp": "0.0.33",
+    "jasmine": "^2.99.0",
+    "json-stable-stringify": "^1.0.1",
+    "npm-run-all": "^4.1.3",
+    "tmp": "0.0.33",
+    "ts-node": "^6.0.5",
+    "tslint": "^5.10.0",
+    "tslint-config-prettier": "^1.13.0",
+    "typedoc": "^0.11.1",
+    "typescript": "^2.8.4"
+  }
+}
